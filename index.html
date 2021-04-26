@@ -22,9 +22,10 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
 
-    <body>
+    <body id="logInBody">
 
-        <div id="login-form">
+        <div class="container logInPage">
+          <div id="login-form">
             <div id="logInModal" class="shadow modalBox">
 
                 <div id="modalForm">
@@ -33,16 +34,16 @@
 
                   <div class="form-group">
                     <span style="font-family:Arial, FontAwesome">&#xF007;</span>
-                    <input id="usernameLogInInput" type="text" class="form-control" placeholder="Username" autocomplete="off">
+                    <input id="usernameLogInInput" type="text" class="form-control" placeholder="Username" autocomplete="off" required>
                   </div>
 
                   <div class="form-group">
                     <span style="font-family:Arial, FontAwesome">&#xf023;</span>
-                    <input id="passwordLogInInput" type="password" class="form-control" placeholder="Password">
+                    <input id="passwordLogInInput" type="password" class="form-control" placeholder="Password" required>
                   </div>
 
                   <div>
-                    <a id="logInBtn" type="button" class="btn" href="welcome.html" onclick="logIn()">Log In</a>
+                    <a id="logInBtn" type="button" class="btn">Log In</a>
                   </div>
                 </div>
               </div>
@@ -53,6 +54,7 @@
         </div>
 
 
+        </div>
         <!-- Pooper File -->
         <script src="js/popper.min.js"></script>
 
