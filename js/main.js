@@ -15,6 +15,7 @@ let usernameInput = document.getElementById("usernameInput"),
     container = document.getElementsByClassName("container"),
     welcomeBody = document.getElementById("welcomeBody"),
     welcomeMsg = document.getElementById("welcome-msg"),
+    msgAlert = document.getElementById("msgAlert"),
     LoginName = "",
     responseMsg = 0,
     usersArray = [];
@@ -69,7 +70,9 @@ for(let i = 0; i < container.length; i++) {
         {
             if(usernameLogInInput.value == "" || passwordLogInInput.value == "")
             { 
-                alert("Please fill required info");
+                msgAlert.classList.remove("d-none");
+                msgAlert.classList.add("d-block");
+                msgAlert.innerHTML = "All info are required";
             } 
             else 
             {
@@ -85,7 +88,9 @@ for(let i = 0; i < container.length; i++) {
                 }
                 else
                 {
-                    alert("invalidUsername or Password .. Please try again!");
+                    msgAlert.classList.remove("d-none");
+                    msgAlert.classList.add("d-block");
+                    msgAlert.innerHTML = "invalid username or password, Please try again!";
                 }
             }
 
@@ -109,8 +114,8 @@ for(let i = 0; i < container.length; i++) {
                     emailInput.classList.add("is-valid");
                     emailInput.classList.remove("is-invalid");
             
-                    emailInputAlert.classList.add("invisible");
-                    emailInputAlert.classList.remove("visible");
+                    emailInputAlert.classList.add("d-none");
+                    emailInputAlert.classList.remove("d-block");
             
                     confirmBtn.disabled = false;
             
@@ -120,8 +125,8 @@ for(let i = 0; i < container.length; i++) {
                     emailInput.classList.add("is-invalid");
                     emailInput.classList.remove("is-valid");
             
-                    emailInputAlert.classList.add("visible");
-                    emailInputAlert.classList.remove("invisible");
+                    emailInputAlert.classList.add("d-block");
+                    emailInputAlert.classList.remove("d-none");
             
                     confirmBtn.disabled = true;
             
@@ -140,8 +145,8 @@ for(let i = 0; i < container.length; i++) {
                     usernameInput.classList.add("is-valid");
                     usernameInput.classList.remove("is-invalid");
             
-                    usernameInputAlert.classList.add("invisible");
-                    usernameInputAlert.classList.remove("visible");
+                    usernameInputAlert.classList.add("d-none");
+                    usernameInputAlert.classList.remove("d-block");
             
                     confirmBtn.disabled = false;
             
@@ -151,8 +156,8 @@ for(let i = 0; i < container.length; i++) {
                     usernameInput.classList.add("is-invalid");
                     usernameInput.classList.remove("is-valid");
             
-                    usernameInputAlert.classList.add("visible");
-                    usernameInputAlert.classList.remove("invisible");
+                    usernameInputAlert.classList.add("d-block");
+                    usernameInputAlert.classList.remove("d-none");
             
                     confirmBtn.disabled = true;
             
@@ -164,15 +169,15 @@ for(let i = 0; i < container.length; i++) {
 
             //Validate Sign up Password:
             function validatePassword() {
-                var regex = /^[A-Za-z0-9]{8,}$/;
+                var regex = /^[A-Za-z0-9]{5,}$/;
             
                 if(regex.test(passwordInput.value) == true)
                 {
                     passwordInput.classList.add("is-valid");
                     passwordInput.classList.remove("is-invalid");
             
-                    passwordInputAlert.classList.add("invisible");
-                    passwordInputAlert.classList.remove("visible");
+                    passwordInputAlert.classList.add("d-none");
+                    passwordInputAlert.classList.remove("d-block");
             
                     confirmBtn.disabled = false;
             
@@ -182,8 +187,8 @@ for(let i = 0; i < container.length; i++) {
                     passwordInput.classList.add("is-invalid");
                     passwordInput.classList.remove("is-valid");
             
-                    passwordInputAlert.classList.add("visible");
-                    passwordInputAlert.classList.remove("invisible");
+                    passwordInputAlert.classList.add("d-block");
+                    passwordInputAlert.classList.remove("d-none");
             
                     confirmBtn.disabled = true;
             
@@ -217,14 +222,16 @@ for(let i = 0; i < container.length; i++) {
                 
                     if(usersArray.some(checkEmailExist)) {
     
-                        alert("This Email Already Exists, Please Try Again!");
+                        
+                        msgAlert.classList.remove("d-none");
+                        msgAlert.classList.add("d-block");
+                        msgAlert.innerHTML = "This Email already exists, Please try again!";
                         confirmBtn.removeAttribute("href");
     
                     } else {
-    
-                        confirmBtn.setAttribute("href", "welcome.html");
-                        responseMsg = 2;
-                        localStorage.setItem("Counter", responseMsg);
+
+                        alert("Done, you can login now");
+                        confirmBtn.setAttribute("href", "index.html");
                         usersArray.push(newUser);
                         localStorage.setItem("UsersList", JSON.stringify(usersArray));
                         
@@ -238,7 +245,9 @@ for(let i = 0; i < container.length; i++) {
             if(usernameInput.value == "" || emailInput.value == "" || passwordInput.value == "") {
                 
                 confirmBtn.removeAttribute("href");
-                alert("Please fill required info");
+                msgAlert.classList.remove("d-none");
+                msgAlert.classList.add("d-block");
+                msgAlert.innerHTML = "All info are required";
 
             } else {
                 addUser();                
@@ -270,10 +279,6 @@ for(let i = 0; i < container.length; i++) {
                     if(responseMsg == 1) //if 1 >> Applay Login Function
                     {
                         welcomeMsg.innerHTML = `Welcome ${LoginName}`; 
-                    }
-                    else if(responseMsg == 2) //if 2 >> Applay Sign up Function
-                    {
-                        displayWelcomeMsg();
                     }
                 };
         };

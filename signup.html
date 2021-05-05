@@ -20,60 +20,75 @@
 
         <!-- Page Style File -->
         <link rel="stylesheet" href="css/style.css">
+
+        <!-- Page Responsive Style File -->
+        <link rel="stylesheet" href="css/responsive.css">
     </head>
 
     <body id="signUpBody">
 
         <div class="container signUpPage">
-          
-          <div id="signUp-form">
+          <div class="form-container">
+            <div id="signUp-form">
 
-            <div id="emailInputAlert" class="alert alert-danger invisible">
-              Invalid Email Address!
-            </div>
-
-            <div id="usernameInputAlert" class="alert alert-danger invisible">
-              Username must start with capital letter
-              <br>
-              and contains at least 3 letters
-            </div>
-
-            <div id="passwordInputAlert" class="alert alert-danger invisible ">
-              Password must be 8 charachters at least
-              <br>
-              Cannot contain special charachters
-            </div>
-
-            <div id="signUpModal" class="shadow modalBox modalBoxSignUp">
-
-                <div id="modalForm">
-
-                  <h1 class="text-center mb-5">SignUp</h1>
-
-                  <div class="form-group">
-                    <span style="font-family:Arial, FontAwesome">&#xf0e0;</span>
-                    <input id="emailInput" type="email" class="form-control" placeholder="Email Address" autocomplete="off">
-                  </div>
-
-                  <div class="form-group">
-                    <span style="font-family:Arial, FontAwesome">&#xF007;</span>
-                    <input id="usernameInput" type="text" class="form-control d-block" placeholder="Username" autocomplete="off">
-                  </div>
-                  
-
-                  <div class="form-group">
-                    <span style="font-family:Arial, FontAwesome">&#xf023;</span>
-                    <input id="passwordInput" type="password" class="form-control" placeholder="Password">
-                  </div>
-
-                  <div>
-                    <a id="confirmBtn" type="button" class="btn">Confirm</a>
-                  </div>
-
-                </div>
-
+              <!-- Invalid Inputs Alert -->
+              <div id="emailInputAlert" class="alert alert-danger d-none">
+                Invalid Email Address!
               </div>
-           </div>
+
+              <div id="usernameInputAlert" class="alert alert-danger d-none">
+                Username must start with capital letter
+                and contains at least 3 letters
+              </div>
+
+              <div id="passwordInputAlert" class="alert alert-danger d-none ">
+                Password must be 5 charachters at least
+                Cannot contain special charachters
+              </div>
+
+              <!-- Form Body -->
+              <div id="signUpModal" class="shadow modalBox modalBoxSignUp">
+  
+                  <div id="modalForm">
+  
+                    <h1 class="text-center mb-5">SignUp</h1>
+  
+                    <div class="form-group">
+                      <div class="form-group-input">
+                        <span style="font-family:Arial, FontAwesome">&#xf0e0;</span>
+                        <input id="emailInput" type="email" class="form-control" placeholder="Email Address" autocomplete="off">
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="form-group-input">
+                        <span style="font-family:Arial, FontAwesome">&#xF007;</span>
+                        <input id="usernameInput" type="text" class="form-control d-block" placeholder="Username" autocomplete="off">
+                      </div>
+                      
+                    </div>
+                    
+  
+                    <div class="form-group">
+                      <div class="form-group-input">
+                        <span style="font-family:Arial, FontAwesome">&#xf023;</span>
+                        <input id="passwordInput" type="password" class="form-control" placeholder="Password">
+                      </div>
+                    </div>
+
+                    <div id="msgAlert" class="text-center d-none mb-2">
+                      
+                    </div>
+  
+                    <div>
+                      <a id="confirmBtn" type="button" class="btn">Confirm</a>
+                    </div>
+  
+                  </div>
+  
+                </div>
+             </div>
+          </div>
         </div>
 
 
