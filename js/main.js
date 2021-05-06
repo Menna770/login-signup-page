@@ -2,7 +2,7 @@
 let usernameInput = document.getElementById("usernameInput"),
     emailInput = document.getElementById("emailInput"),
     passwordInput = document.getElementById("passwordInput"),
-    usernameLogInInput = document.getElementById("usernameLogInInput"),
+    emailLogInInput = document.getElementById("emailLogInInput"),
     passwordLogInInput = document.getElementById("passwordLogInInput"), 
     inputs = document.getElementsByClassName("form-control"),
     emailInputAlert = document.getElementById("emailInputAlert"),
@@ -10,8 +10,10 @@ let usernameInput = document.getElementById("usernameInput"),
     passwordInputAlert = document.getElementById("passwordInputAlert"),
     logInBtn = document.getElementById("logInBtn"),
     sigUpBtn = document.getElementById("sigUpBtn"),
+    goToLoginBtn = document.getElementById("goToLoginBtn"),
     confirmBtn = document.getElementById("confirmBtn"),
     logOutBtn = document.getElementById("logOutBtn"),
+    modalForm = document.getElementById("modalForm"),
     container = document.getElementsByClassName("container"),
     welcomeBody = document.getElementById("welcomeBody"),
     welcomeMsg = document.getElementById("welcome-msg"),
@@ -56,8 +58,10 @@ for(let i = 0; i < container.length; i++) {
             for(let i = 0; i < usersArray.length; i++)
                 {
                     let storedUser = usersArray[i];
-                    if(usernameLogInInput.value == storedUser.name && passwordLogInInput.value == storedUser.password) 
+                    if(emailLogInInput.value == storedUser.email && passwordLogInInput.value == storedUser.password) 
                     {
+                        LoginName = usersArray[i].name;
+                        localStorage.setItem("LoginName", LoginName);
                         userCheck = 1;
                         break;
                     }
@@ -68,21 +72,23 @@ for(let i = 0; i < container.length; i++) {
         //LogIn Function:
         function logIn()
         {
-            if(usernameLogInInput.value == "" || passwordLogInInput.value == "")
+            if(emailLogInInput.value == "" || passwordLogInInput.value == "")
             { 
                 msgAlert.classList.remove("d-none");
                 msgAlert.classList.add("d-block");
                 msgAlert.innerHTML = "All info are required";
             } 
-            else 
+            else if(!localStorage.getItem("UsersList")) {
+                msgAlert.classList.remove("d-none");
+                msgAlert.classList.add("d-block");
+                msgAlert.innerHTML = "Not Registered!";
+            } 
+            else
             {
                 if(userExsit()) 
                 {   
                     responseMsg = 1;
                     localStorage.setItem("Counter", responseMsg);
-    
-                    LoginName = usernameLogInInput.value;
-                    localStorage.setItem("LoginName", LoginName);
     
                     logInBtn.setAttribute("href", "welcome.html");
                 }
@@ -90,7 +96,7 @@ for(let i = 0; i < container.length; i++) {
                 {
                     msgAlert.classList.remove("d-none");
                     msgAlert.classList.add("d-block");
-                    msgAlert.innerHTML = "invalid username or password, Please try again!";
+                    msgAlert.innerHTML = "invalid email or password<br>Please try again!";
                 }
             }
 
@@ -138,7 +144,7 @@ for(let i = 0; i < container.length; i++) {
 
             //Validate Sign up Username:
             function validateUsername() {
-                var regex = /^[A-Z][a-z A-z 0-9]{3,}$/;
+                var regex = /^[A-Z][a-z A-z 0-9]{2,}$/;
             
                 if(regex.test(usernameInput.value) == true)
                 {
@@ -214,6 +220,17 @@ for(let i = 0; i < container.length; i++) {
                 if(!localStorage.getItem("UsersList")) {
                     usersArray.push(newUser);
                     localStorage.setItem("UsersList", JSON.stringify(usersArray));
+                    modalForm.innerHTML = `
+                                    <div class="badge">Done</div>
+                                    <p class="done-msg">Congratulations
+                                    <br>Your accout has been created successfully
+                                    <br>
+                                    You can log in to your accont now
+                                    </p>
+                                    <div>
+                                    <a id="goToLoginBtn" type="button" class="btn" href="index.html">Go to login page</a>
+                                    </div>
+                                    `;
     
                 } else {
                     usersArray = JSON.parse(localStorage.getItem("UsersList"));
@@ -226,14 +243,22 @@ for(let i = 0; i < container.length; i++) {
                         msgAlert.classList.remove("d-none");
                         msgAlert.classList.add("d-block");
                         msgAlert.innerHTML = "This Email already exists, Please try again!";
-                        confirmBtn.removeAttribute("href");
     
                     } else {
 
-                        alert("Done, you can login now");
-                        confirmBtn.setAttribute("href", "index.html");
                         usersArray.push(newUser);
                         localStorage.setItem("UsersList", JSON.stringify(usersArray));
+                        modalForm.innerHTML = `
+                                    <div class="badge">Done</div>
+                                    <p class="done-msg">Congratulations
+                                    <br>Your accout has been created successfully
+                                    <br>
+                                    You can log in to your accont now
+                                    </p>
+                                    <div>
+                                    <a id="goToLoginBtn" type="button" class="btn" href="index.html">Go to login page</a>
+                                    </div>
+                                    `;
                         
                     }
                 };

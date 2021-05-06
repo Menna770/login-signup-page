@@ -1,26 +1,16 @@
-@media (max-width: 991px) {
+@media (max-width: 500px) {
 
-  .modalBox,
-  #signUpBox {
-    width: 300px;
-    padding: 10px;
-  }
+.modalBox {
+  padding: 25px 15px;
+}
 
-  .modalBox .form-group input {
-    width: 70%;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  #usernameInputAlert {
-    width: 70%;
-    font-size: 14px;
-  }
-
-  #welcome-box {
-    width: 250px;
-    height: 100px;
-  }
+.modalBox .form-group-input,
+.modalBox .btn,
+#emailInputAlert,
+#usernameInputAlert,
+#passwordInputAlert {
+  width: 230px;
+}
 
   #welcome-box h1 {
     font-size: 28px;

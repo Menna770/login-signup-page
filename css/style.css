@@ -38,10 +38,10 @@ body {
 #msgAlert {
   color: red;
   font-size: 18px;
+  margin: 1rem 0;
 }
 
-
-/************** START LOG IN PAGE **************/
+/************** START  LOG  IN  PAGE **************/
 #login-form,
 #signUp-form,
 .welcome-main,
@@ -52,9 +52,9 @@ body {
 }
 
 .modalBox {
-  width: 400px;
-  height: 370px;
-  padding: 25px;
+  width: max-content;
+  height: max-content;
+  padding: 25px 25px 35px;
   background-color: #c0c2c336;
   border-radius: 5px;
   position: relative;
@@ -67,6 +67,7 @@ body {
 }
 
 .modalBox .form-group-input {
+  width: 300px;
   display: flex;
   justify-content: center;
 }
@@ -96,17 +97,14 @@ body {
 .modalBox .btn {
   background-color: #719947;
   display: block;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-radius: 5px;
   color: #fff;
   text-align: center;
-  position: absolute;
+  position: relative;
   left: 0;
   bottom: 0;
   padding: 10px 0;
-  width: 100%;
+  width: 300px;
   opacity: 0.9;
 }
 
@@ -129,23 +127,40 @@ body {
   cursor: pointer;
   text-decoration: underline !important;
 }
-/************** END LOG IN PAGE **************/
+/************** END  LOG  IN  PAGE **************/
 
-/************** Start SIGN UP PAGE **************/
-#signUpModal {
-  height: 430px;
+/************** START  SIGN  UP  PAGE **************/
+#signUp-form #modalForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #emailInputAlert,
 #usernameInputAlert,
 #passwordInputAlert {
-  position: fixed;
-  top: 5px;
-  margin: auto;
+  padding: 6px;
+  width: 300px;
 }
-/************** END SIGN UP  PAGE **************/
 
-/************** START WELCOME PAGE **************/
+.badge {
+  background-color: #719947 !important;
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 18px;
+  font-weight: normal;
+  width: 50%;
+}
+
+#signUp-form .done-msg {
+  color: #fff;
+  margin: 3rem 0;
+  text-align: center;
+}
+/************** END  SIGN  UP  PAGE **************/
+
+/************** START  WELCOME  PAGE **************/
 .welcome-main,
 #login-form,
 #signUp-form {
@@ -153,8 +168,8 @@ body {
 }
 
 #welcome-box {
-  width: 400px;
-  height: 150px;
+  width: max-content;
+  height: max-content;
   padding: 20px;
   margin-top: 250px;
   background-color: #c0c2c336;
@@ -175,4 +190,4 @@ body {
 .welcome-main button:hover {
   opacity: 1;
 }
-/************** END WELCOME PAGE **************/
+/************** END  WELCOME  PAGE **************/
