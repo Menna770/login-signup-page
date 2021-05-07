@@ -13,6 +13,7 @@ let usernameInput = document.getElementById("usernameInput"),
     goToLoginBtn = document.getElementById("goToLoginBtn"),
     confirmBtn = document.getElementById("confirmBtn"),
     logOutBtn = document.getElementById("logOutBtn"),
+    deleteAccBtn = document.getElementById("deleteAcc"),
     modalForm = document.getElementById("modalForm"),
     container = document.getElementsByClassName("container"),
     welcomeBody = document.getElementById("welcomeBody"),
@@ -306,6 +307,11 @@ for(let i = 0; i < container.length; i++) {
                         welcomeMsg.innerHTML = `Welcome ${LoginName}`; 
                     }
                 };
+
+
+            deleteAccBtn.addEventListener("click", function()) {
+                
+            }
         };
 }
 
