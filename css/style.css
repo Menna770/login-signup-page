@@ -112,18 +112,21 @@ body {
   opacity: 1;
 }
 
-.signup-box {
+.signup-box,
+.login-box {
   color: #fff;
   font-size: 18px;
   margin-top: 10px;
 }
 
-.signup-box a {
+.signup-box a,
+.login-box a {
   color: #719947 !important;
   font-weight: 600;
 }
 
-.signup-box a:hover {
+.signup-box a:hover,
+.login-box a:hover {
   cursor: pointer;
   text-decoration: underline !important;
 }

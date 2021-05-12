@@ -16,7 +16,8 @@
         font-size: 28px;
       }
 
-    .signup-box {
+    .signup-box,
+    .login-box {
         font-size: 15px;
       }
 }
